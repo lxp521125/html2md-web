@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@sitdown/juejin": "*",
+    "express": "^4.17.1",
+    "sitdown": "^1.1.6"
+  }
+}
