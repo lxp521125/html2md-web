@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@sitdown/juejin": "*",
+    "@sitdown/wechat": "1.1.3",
+    "@sitdown/zhihu": "*",
     "express": "^4.17.1",
     "sitdown": "^1.1.6"
   }
