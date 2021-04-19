@@ -100,7 +100,12 @@ app.post('/zhihu', (req, res) => {
 })
 
 app.post('/index', (req, res) => {
-    fs.appendFile("./doc/index.md", "[" + req.body.title + "](" + req.body.url+")\n");
+    fs.appendFile("./doc/index.md", "[" + req.body.title + "](" + req.body.url + ")\n ", function (err) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log(req.body.title, "浏览记录写入");
+    });
     res.send("ok")
 })
 //同步读取密钥和签名证书
