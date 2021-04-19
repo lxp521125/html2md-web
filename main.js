@@ -99,6 +99,10 @@ app.post('/zhihu', (req, res) => {
     res.send("ok")
 })
 
+app.post('/index', (req, res) => {
+    fs.appendFile("./doc/index.md", "[" + req.body.title + "](" + req.body.url+")\n");
+    res.send("ok")
+})
 //同步读取密钥和签名证书
 var options = {
     key: fs.readFileSync('./doc.aitboy.cn/doc.aitboy.cn.key'),
