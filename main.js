@@ -100,7 +100,7 @@ app.post('/zhihu', (req, res) => {
 })
 
 app.post('/index', (req, res) => {
-    fs.appendFile("./doc/index.md", "[" + req.body.title + "](" + req.body.url + ")\n ", function (err) {
+    fs.appendFile("./doc/readme.md", "[" + req.body.title + "](" + req.body.url + ")\n\n ", function (err) {
         if (err) {
             return console.error(err);
         }
