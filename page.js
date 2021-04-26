@@ -14,6 +14,7 @@ page.open(address, function (status) {
         page.includeJs("https://code.jquery.com/jquery-3.6.0.min.js", function () {
             page.injectJs("getCont.js");
         });
+        page.injectJs("getCont.js");
         setTimeout(phantom.exit, 10000);
     }
 });
