@@ -103,7 +103,7 @@ app.post('/zhihu', (req, res) => {
 })
 
 app.get('/url', (req, res) => {
-    spawn("phantomjs", ["page.js", req.query.url])
+    spawn("phantomjs", ["page_mp.js", req.query.url])
 
     res.send("ok")
 })
