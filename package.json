@@ -5,5 +5,8 @@
     "@sitdown/zhihu": "*",
     "express": "^4.17.1",
     "sitdown": "^1.1.6"
+  },
+  "devDependencies": {
+    "phantomjs": "^2.1.7+deprecated"
   }
 }
