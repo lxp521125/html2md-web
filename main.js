@@ -7,6 +7,9 @@ var { applyZhihuRule } = require('@sitdown/zhihu');
 var express = require('express');
 var https = require('https');
 var fs = require('fs');
+var spawn = require("child_process").spawn
+
+
 
 var zhihusitdown = new Sitdown({
     keepFilter: ['style'],
@@ -99,6 +102,10 @@ app.post('/zhihu', (req, res) => {
     res.send("ok")
 })
 
+app.get('/url', (req, res) => {
+    spawn("./node_modules/.bin/phantomjs", ["page.js", req.params.url])
+    res.send("ok")
+})
 app.post('/index', (req, res) => {
     fs.appendFile("./doc/readme.md", "[" + req.body.title + "](" + req.body.url + ")\n\n ", function (err) {
         if (err) {
