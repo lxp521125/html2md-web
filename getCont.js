@@ -1,56 +1,15 @@
-// ==UserScript==
-// @name         保存文档
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @exclude      /(^[^:\/#\?]*:\/\/([^#\?\/]*\.)?(pos|eclick)\.baidu\.com\/.*$)/
-// @exclude      /.*lanhuapp\.com\/.*$)/
-// @exclude      /.*lanhuapp\.com\/.*$)/
-// @exclude      /.*\.tapd\.cn/?.*/
-// @exclude      /.*\.(gaodunwangxiao|lanhuapp|googlesyndication|gaodun)\.com/?.*/
-// @exclude      /.*(www|signin|console)\.aliyun\.com/?.*/
-// @exclude      /(^[^:\/#\?]*:\/\/([^#\?\/]*\.)?(docs|exmail)\.qq\.(cn|com)/?.*/
-// @exclude      /(^[^:\/#\?]*:\/\/([^#\?\/]*\.)?(cloud|www)\.italent\.(cn|com)/?.*/
-// @match        *://*.com/*
-// @match        *://*.cn/*
-// @match        *://www.jb51.net/*
-// @match        *://www.jianshu.com/*
-// @match        *://zhuanlan.zhihu.com/*
-// @match        *://blog.csdn.net/*
-// @match        *://juejin.cn/*
-// @match        *://mp.weixin.qq.com/*
-// @match        *://www.cnblogs.com/*
-// @match        *://www.jianshu.com/*
-// @require      https://code.jquery.com/jquery-3.6.0.min.js
-// @icon         https://www.google.com/s2/favicons?domain=juejin.cn
-// @grant        none
-// ==/UserScript==
-function xpPostData(url, data) {
-    // Default options are marked with *
-       var a = '';
-       if( data.cont){
-          a = "title="+encodeURIComponent(data.title)+"&cont="+encodeURIComponent(data.cont);
-       }else{
-           a = "title="+encodeURIComponent(data.title)+"&url="+encodeURIComponent(data.url);
-       }
-    return fetch(url, {
-      body: a, // must match 'Content-Type' header
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, same-origin, *omit
-      headers: {
-        'user-agent': 'Mozilla/4.0 MDN Example',
-       'content-type': 'application/x-www-form-urlencoded '
-      },
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, cors, *same-origin
-      redirect: 'follow', // manual, *follow, error
-      referrer: 'no-referrer', // *client, no-referrer
-    })
-    .then(response => response.json()) // parses response to JSON
-  }
+
   (function() {
-      'use strict';
+    function xpPostData(url, data) {
+        // Default options are marked with *
+           var a = '';
+           if( data.cont){
+              a = "title="+encodeURIComponent(data.title)+"&cont="+encodeURIComponent(data.cont);
+           }else{
+               a = "title="+encodeURIComponent(data.title)+"&url="+encodeURIComponent(data.url);
+           }
+        console.log(JSON.stringify(data));
+    }
       function handleDoc(){
           var head_title = document.querySelector("title").innerText.trim();
           if(head_title == ""){
