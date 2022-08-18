@@ -15,7 +15,7 @@ var wechatsitdown = new Sitdown({
 wechatsitdown.use(applyWechatRule);
 
 var a = JSON.parse(process.argv.splice(2));
-
+console.log(a);
 if (a.cont && a.cont != "") {
     var markdown = wechatsitdown.HTMLToMD(a.cont)
     console.log("准备写入文件");

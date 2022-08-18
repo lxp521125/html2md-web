@@ -8,7 +8,7 @@
            }else{
                a = "title="+encodeURIComponent(data.title)+"&url="+encodeURIComponent(data.url);
            }
-        console.log(JSON.stringify(data));
+        console.log(JSON.stringify({url:url,data:a}));
     }
       function handleDoc(){
           var head_title = document.querySelector("title").innerText.trim();
